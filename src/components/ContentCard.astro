@@ -1,0 +1,19 @@
+---
+import { fmtDate, isoDate } from '../lib/utils';
+interface Props { title: string; description: string; date: Date; href?: string; external?: boolean; meta?: string; }
+const { title, description, date, href, external = false, meta } = Astro.props;
+const extra = href && external ? { target: '_blank', rel: 'noopener noreferrer' } : {};
+---
+{href ? (
+  <a href={href} {...extra} class="block h-full border border-line bg-panel p-6 no-underline transition-colors hover:border-accent">
+    <p class="text-xs tracking-[0.16em] uppercase text-muted">{meta ? `${meta} · ` : ''}<time datetime={isoDate(date)}>{fmtDate(date)}</time></p>
+    <h3 class="mt-3 text-2xl text-bone">{title}</h3>
+    <p class="mt-3 text-sm text-muted">{description}</p>
+  </a>
+) : (
+  <div class="block h-full border border-line bg-panel p-6">
+    <p class="text-xs tracking-[0.16em] uppercase text-muted">{meta ? `${meta} · ` : ''}<time datetime={isoDate(date)}>{fmtDate(date)}</time></p>
+    <h3 class="mt-3 text-2xl text-bone">{title}</h3>
+    <p class="mt-3 text-sm text-muted">{description}</p>
+  </div>
+)}

@@ -1,0 +1,19 @@
+---
+import { SITE } from '../site';
+const links = [
+  { href: '/#mission', label: 'Mission' },
+  { href: '/#explore', label: 'Explore' },
+];
+---
+<header class="border-b border-line">
+  <div class="wrap flex items-center justify-between gap-6 py-5">
+    <a href="/" class="font-serif text-2xl sm:text-3xl font-light uppercase tracking-[0.08em] no-underline text-bone" aria-label="Reforming USA home">
+      <em>Reforming</em> <span class="text-accent-soft">USA</span>
+    </a>
+    <nav aria-label="Main">
+      <ul class="flex gap-5 sm:gap-8 text-xs sm:text-sm tracking-[0.14em] uppercase">
+        {links.map((l) => <li><a href={l.href} class="text-muted hover:text-bone no-underline">{l.label}</a></li>)}
+      </ul>
+    </nav>
+  </div>
+</header>

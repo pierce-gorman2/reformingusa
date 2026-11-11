@@ -1,0 +1,24 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { fmtDate, isoDate } from '../../lib/utils';
+
+export async function getStaticPaths() {
+  const essays = await getCollection('essays', (e) => !e.data.draft);
+  return essays.map((entry) => ({ params: { id: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+<BaseLayout title={entry.data.title} description={entry.data.description}>
+  <article class="wrap py-16 md:py-24 max-w-3xl">
+    <a href="/#content" class="eyebrow no-underline">← All content</a>
+    <h1 class="mt-6 text-4xl sm:text-6xl">{entry.data.title}</h1>
+    <p class="mt-5 text-sm text-muted">
+      {entry.data.author} · <time datetime={isoDate(entry.data.date)}>{fmtDate(entry.data.date)}</time>
+    </p>
+    <div class="prose prose-invert prose-lg mt-10 max-w-none prose-headings:font-serif prose-headings:font-medium prose-a:text-accent-soft">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>

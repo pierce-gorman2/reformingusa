@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../site';
+
+const options = [
+  { label: 'Podcast', text: 'Conversations on Scripture, the founding, and the work of reform.', cta: 'Listen', href: SITE.links.podcast },
+  { label: 'YouTube', text: 'Video teaching and discussion.', cta: 'Watch', href: SITE.links.youtube },
+  { label: 'Blog', text: 'Essays and writing on reforming the nation.', cta: 'Read', href: SITE.links.blog },
+];
+---
+<BaseLayout>
+  <section class="hero">
+    <div class="wrap py-24 md:py-36">
+      <p class="eyebrow">Reforming USA</p>
+      <h1 class="mt-6 text-4xl sm:text-6xl lg:text-7xl max-w-5xl font-semibold tracking-tight">America is in desperate need of a reformation.<span class="block mt-6 text-2xl sm:text-3xl lg:text-4xl font-normal italic text-muted">Join us as we strive to reform America back to submission under King Jesus.</span></h1>
+    </div>
+  </section>
+
+  <section id="mission" class="border-t border-line">
+    <div class="wrap py-20 md:py-28 grid gap-10 md:grid-cols-[1fr_1.6fr]">
+      <div>
+        <p class="eyebrow">Mission</p>
+        <h2 class="mt-4 text-4xl sm:text-5xl">A nation worth handing down.</h2>
+      </div>
+      <div class="text-lg text-muted space-y-5">
+        <p>Our aim is to join with fellow Christian men to fight to reform the United States, so that the future generations can raise their families in a truly Christian nation.</p>
+        <p>We produce podcasts, videos, and writing aimed at recovering a nation worth handing down to our children’s children. Our approach is long-term and practical, not merely reactive.</p>
+        <p>We are reformed and postmillennial, which means we have confidence that we win down here, and God is pleased to bring that about through the faithful labor of His people.</p>
+        <p class="font-serif text-2xl sm:text-3xl leading-snug text-bone">Men of God, pick up your Sword. Get in the arena. Contend for the faith. Don’t back down. Passive Christianity has no part in the new Christendom.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="explore" class="border-t border-line">
+    <div class="wrap py-20 md:py-28 grid gap-6 md:grid-cols-3">
+      {options.map((o) => (
+        <a href={o.href} class="group block border border-line bg-panel p-8 no-underline transition-colors hover:border-accent">
+          <h2 class="text-4xl sm:text-5xl">{o.label}</h2>
+          <p class="mt-3 text-sm text-muted">{o.text}</p>
+          <p class="mt-8 text-xs tracking-[0.18em] uppercase text-accent-soft group-hover:text-bone">{o.cta} →</p>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

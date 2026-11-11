@@ -1,0 +1,46 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-charcoal: #111316;
+  --color-panel: #181B1F;
+  --color-line: #2B2F35;
+  --color-bone: #ECE7DD;
+  --color-muted: #A7A59E;
+  --color-accent: #C8453A;
+  --color-accent-soft: #E4766A;
+  --font-serif: "Cormorant Garamond", "Times New Roman", Times, serif;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@layer base {
+  html { background: var(--color-charcoal); scroll-behavior: smooth; }
+  body {
+    background: var(--color-charcoal);
+    color: var(--color-bone);
+    font-family: var(--font-sans);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 { font-family: var(--font-serif); line-height: 1.1; font-weight: 500; }
+  a { text-underline-offset: 4px; }
+  :focus-visible { outline: 2px solid var(--color-accent-soft); outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+}
+
+@layer components {
+  .wrap { max-width: 72rem; margin-inline: auto; padding-inline: 1.5rem; }
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: .75rem;
+    font-weight: 600;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--color-accent-soft);
+  }
+  .hero {
+    background:
+      radial-gradient(ellipse 60% 55% at 50% 0%, rgba(200, 69, 58, 0.16), transparent 70%),
+      var(--color-charcoal);
+  }
+}

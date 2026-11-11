@@ -44,4 +44,3 @@ Each file starts with a short block of details (see the sample files). Set `draf
 - `src/site.ts` — tagline, statement, Traditio Media link, social links, contact email.
 - `src/pages/index.astro` — the home page sections (hero, mission, content, foundations).
 - `src/styles/global.css` — colors and fonts.
-- `_archive/` — earlier pages and components kept for reference.
