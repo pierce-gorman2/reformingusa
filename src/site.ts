@@ -6,7 +6,7 @@ export const SITE = {
   description:
     'Building for the next thousand years. Podcasts, video, and writing aimed at recovering a nation worth handing down.',
   url: 'https://reformingusa.org',
-  parent: { name: 'Traditio Media', href: '#' }, // TODO: set Traditio Media's website
+  parent: { name: 'Traditio Media', href: 'https://traditiomedia.com' },
   email: '', // optional contact email, shown in the footer when set
   links: {
     podcast: '#', // TODO: podcast link
